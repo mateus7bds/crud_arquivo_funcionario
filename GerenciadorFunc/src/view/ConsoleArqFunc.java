@@ -36,7 +36,6 @@ public class ConsoleArqFunc {
             """);
             boolean querSair = false;
             int opcao;
-
             try {
                 System.out.print("Opção: ");
                 opcao = Integer.parseInt(buffer.readLine().trim());
@@ -44,7 +43,6 @@ public class ConsoleArqFunc {
                 System.out.println("ENTRADA INVÁLIDA! TENTE NOVAMENTE!");
                 continue;
             }
-
             switch (opcao) {
                 case 1:
                     listarFuncionarios("Lista de funcionários: ");
@@ -106,26 +104,21 @@ public class ConsoleArqFunc {
 
     public static Funcionario gerarInterfaceEntd(boolean ehAtualizacao, int chaveFuncionalEntd) {
         Funcionario funcionario = new Funcionario();
-
         String mensagemInicial = "";
         if (ehAtualizacao) {
             mensagemInicial = "Formulário Atualização Funcionário";
         } else {
             mensagemInicial = "Formulário Cadastro Funcionário";
         }
-        
         System.out.println("-------------------------------------------");
         System.out.println(mensagemInicial);
         System.out.println("-------------------------------------------");
-
         int chaveFuncionalAtual = 0;
-
         if (ehAtualizacao) {
             chaveFuncionalAtual = chaveFuncionalEntd;
         } else {
             chaveFuncionalAtual = receberInteiro("Chave Funcional (7 dígitos): ");
         }
-
         funcionario.setChaveFuncional(chaveFuncionalAtual);
         funcionario.setNome(receberString("Nome: "));
         funcionario.setSalario(receberDouble("Salário (Caracter-decimal=.): "));
